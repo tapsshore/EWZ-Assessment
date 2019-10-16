@@ -1,9 +1,7 @@
 package com.assessment.test.gtassessment.dto;
 
-import javax.validation.constraints.NotNull;
 
 public class DepartmentDto {
-    @NotNull
     private Long id;
 
     private String name;
