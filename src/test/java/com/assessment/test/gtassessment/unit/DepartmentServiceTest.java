@@ -17,6 +17,7 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
@@ -86,6 +87,12 @@ public class DepartmentServiceTest {
         when(departmentRepository.findByIdAndStatus(anyLong(), any(Status.class))).thenReturn(Optional.empty());
         departmentService.getDepartmentById(id);
     }
+//
+//    @Test
+//    public void findAllDepartmentsShouldFailIfTheRequestIsNull(){
+//        when(departmentRepository.findAllByStatus(Status.ACTIVE)).thenReturn(any());
+//        departmentService.getAll();
+//    }
 
 
 }
