@@ -3,6 +3,7 @@ package com.assessment.test.gtassessment.domain;
 import com.assessment.test.gtassessment.utils.i18.enums.Status;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "departments")
@@ -15,6 +16,8 @@ public class Department {
 
     @Enumerated(value = EnumType.STRING)
     private Status status;
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<Employee> employees;
 
 
     @PrePersist
@@ -44,5 +47,13 @@ public class Department {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

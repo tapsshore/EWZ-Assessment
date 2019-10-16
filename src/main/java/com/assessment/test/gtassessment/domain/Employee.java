@@ -17,6 +17,9 @@ public class Employee {
     private String nationalId;
     @NotNull
     private String employeeNumber;
+    @JoinColumn(name = "department_id")
+    @ManyToOne
+    private Department department;
 
     public Long getId() {
         return id;
@@ -58,6 +61,14 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -66,6 +77,7 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", nationalId='" + nationalId + '\'' +
                 ", employeeNumber='" + employeeNumber + '\'' +
+                ", department=" + department +
                 '}';
     }
 }
